@@ -93,8 +93,8 @@ export function HeroSection() {
           className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto"
         >
           {[
-            { value: "50+", label: "Automations Built" },
-            { value: "200+", label: "Hours Saved Monthly" },
+            { value: "30+", label: "Automations Built" },
+            { value: "150+", label: "Hours Saved Monthly" },
             { value: "15+", label: "Happy Clients" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
