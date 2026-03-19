@@ -7,10 +7,6 @@ import {
   X, 
   CheckCircle2, 
   Zap, 
-  Clock, 
-  Users, 
-  TrendingUp,
-  Mail,
   Bot,
   BarChart3,
   ArrowRight
@@ -19,6 +15,7 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
@@ -237,7 +234,7 @@ export function ProjectsSection() {
       <AnimatePresence>
         {selectedProject && (
           <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 gap-0">
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 gap-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -246,19 +243,19 @@ export function ProjectsSection() {
               >
                 {/* Modal Header */}
                 <div className="sticky top-0 z-10 bg-card border-b border-border p-6">
-                  <DialogHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <selectedProject.icon className="size-5 text-primary" />
-                      </div>
-                      <DialogTitle className="text-2xl sm:text-3xl font-bold">
-                        {selectedProject.title}
-                      </DialogTitle>
-                    </div>
-                    <p className="text-muted-foreground">
-                      {selectedProject.overview}
-                    </p>
-                  </DialogHeader>
+<DialogHeader>
+  <div className="flex items-center gap-3 mb-2">
+  <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
+  <selectedProject.icon className="size-5 text-primary" />
+  </div>
+  <DialogTitle className="text-2xl sm:text-3xl font-bold">
+  {selectedProject.title}
+  </DialogTitle>
+  </div>
+  <DialogDescription className="text-muted-foreground">
+  {selectedProject.overview}
+  </DialogDescription>
+  </DialogHeader>
                 </div>
 
                 <div className="p-6 space-y-8">
@@ -449,28 +446,17 @@ export function ProjectsSection() {
                     </div>
                   </motion.div>
 
-                  {/* Call to Action */}
+                  {/* Close Button */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.45 }}
-                    className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border"
+                    className="flex justify-end pt-4 border-t border-border"
                   >
                     <Button
                       size="lg"
-                      className="gap-2 flex-1"
-                      onClick={() => {
-                        setSelectedProject(null)
-                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                      }}
-                    >
-                      <Mail className="size-4" />
-                      Contact Me About This Project
-                    </Button>
-                    <Button
-                      size="lg"
                       variant="outline"
-                      className="gap-2 flex-1"
+                      className="gap-2"
                       onClick={() => setSelectedProject(null)}
                     >
                       <X className="size-4" />
