@@ -84,7 +84,7 @@ export function AboutSection() {
             {/* Quick Stats */}
             <div className="flex gap-8 mt-8 pt-8 border-t border-border">
               <div>
-                <div className="text-3xl font-bold text-foreground">5+</div>
+                <div className="text-3xl font-bold text-foreground">3+</div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
               <div>
