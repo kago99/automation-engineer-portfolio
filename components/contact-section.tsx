@@ -21,12 +21,21 @@ export function ContactSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], [40, -40])
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
+
+    const formData = new FormData(e.currentTarget)
+    const name = String(formData.get("name") || "")
+    const email = String(formData.get("email") || "")
+    const project = String(formData.get("project") || "")
+    const message = String(formData.get("message") || "")
+
+    const subject = encodeURIComponent("Contact from portfolio")
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nProject: ${project}\n\nMessage:\n${message}`
+    )
+
+    window.location.href = `mailto:lewiskago00@gmail.com?subject=${subject}&body=${body}`
     setIsSubmitted(true)
   }
 
@@ -92,7 +101,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">Email</div>
-                  <div className="text-foreground font-medium">hello@automateflow.dev</div>
+                  <div className="text-foreground font-medium">lewiskago00@gmail.com</div>
                 </div>
                 <ArrowUpRight className="size-4 text-muted-foreground ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
