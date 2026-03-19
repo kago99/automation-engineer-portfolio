@@ -237,7 +237,7 @@ export function ProjectsSection() {
       <AnimatePresence>
         {selectedProject && (
           <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0 gap-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <DialogContent className="max-w-[95vw] w-full max-h-[90vh] overflow-y-auto p-0 gap-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -246,200 +246,207 @@ export function ProjectsSection() {
               >
                 {/* Modal Header */}
                 <div className="sticky top-0 z-10 bg-card border-b border-border p-6">
-<DialogHeader>
-  <div className="flex items-center gap-3 mb-2">
-  <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
-  <selectedProject.icon className="size-5 text-primary" />
-  </div>
-  <DialogTitle className="text-2xl sm:text-3xl font-bold">
-  {selectedProject.title}
-  </DialogTitle>
-  </div>
-  <DialogDescription className="text-muted-foreground">
-  {selectedProject.overview}
-  </DialogDescription>
-  </DialogHeader>
+                  <DialogHeader>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <selectedProject.icon className="size-5 text-primary" />
+                      </div>
+                      <DialogTitle className="text-2xl sm:text-3xl font-bold">
+                        {selectedProject.title}
+                      </DialogTitle>
+                    </div>
+                    <DialogDescription className="text-muted-foreground max-w-3xl">
+                      {selectedProject.overview}
+                    </DialogDescription>
+                  </DialogHeader>
                 </div>
 
-                <div className="p-6 space-y-8">
-                  {/* Problem Section */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      The Problem
-                    </h4>
-                    <div className="glass p-4 rounded-lg">
-                      <p className="text-muted-foreground leading-relaxed">
-                        {selectedProject.problem}
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  {/* Solution Section */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 }}
-                  >
-                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      The Solution
-                    </h4>
-                    <div className="glass p-4 rounded-lg">
-                      <p className="text-muted-foreground leading-relaxed">
-                        {selectedProject.solution}
-                      </p>
-                    </div>
-                  </motion.div>
-
-                  {/* Workflow Diagram Section */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      Workflow Diagram
-                    </h4>
-                    <div className="glass p-6 rounded-lg">
-                      <div className="relative w-full rounded-lg overflow-hidden bg-white">
-                        <img 
-                          src={selectedProject.workflowImage} 
-                          alt={`${selectedProject.title} workflow diagram`}
-                          className="w-full h-auto object-contain"
-                        />
+                {/* 3-Column Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6">
+                  {/* Column 1: Problem, Solution, Tools */}
+                  <div className="space-y-6">
+                    {/* Problem Section */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-primary" />
+                        The Problem
+                      </h4>
+                      <div className="glass p-4 rounded-lg">
+                        <p className="text-muted-foreground leading-relaxed text-sm">
+                          {selectedProject.problem}
+                        </p>
                       </div>
-                      <p className="text-xs text-muted-foreground text-center mt-3">
-                        End-to-end automation workflow
-                      </p>
-                    </div>
-                  </motion.div>
+                    </motion.div>
 
-                  {/* Tools & Technologies */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25 }}
-                  >
-                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      Tools & Technologies
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tech.map((tech, index) => (
-                        <motion.span
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.25 + index * 0.05 }}
-                          className="px-4 py-2 bg-primary/10 rounded-full text-sm text-primary font-medium"
-                        >
-                          {tech}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
+                    {/* Solution Section */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.15 }}
+                    >
+                      <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-primary" />
+                        The Solution
+                      </h4>
+                      <div className="glass p-4 rounded-lg">
+                        <p className="text-muted-foreground leading-relaxed text-sm">
+                          {selectedProject.solution}
+                        </p>
+                      </div>
+                    </motion.div>
 
-                  {/* Step-by-Step Workflow */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      Step-by-Step Workflow
-                    </h4>
-                    <div className="space-y-3">
-                      {selectedProject.workflowSteps.map((step, index) => (
-                        <motion.div
-                          key={step}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.3 + index * 0.05 }}
-                          className="flex items-start gap-4"
-                        >
-                          <div className="flex-shrink-0 size-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
-                            {index + 1}
-                          </div>
-                          <div className="flex-1 pt-1">
-                            <p className="text-muted-foreground">{step}</p>
-                          </div>
-                          {index < selectedProject.workflowSteps.length - 1 && (
-                            <ArrowRight className="size-4 text-primary/40 mt-2 hidden sm:block" />
-                          )}
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
+                    {/* Tools & Technologies */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-primary" />
+                        Tools & Technologies
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.tech.map((tech, index) => (
+                          <motion.span
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2 + index * 0.05 }}
+                            className="px-3 py-1.5 bg-primary/10 rounded-full text-xs text-primary font-medium"
+                          >
+                            {tech}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
 
-                  {/* Key Features */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35 }}
-                  >
-                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      Key Features
-                    </h4>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      {selectedProject.features.map((feature, index) => (
-                        <motion.div
-                          key={feature}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.35 + index * 0.05 }}
-                          className="flex items-start gap-3 glass p-3 rounded-lg"
-                        >
-                          <CheckCircle2 className="size-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-foreground">{feature}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
+                  {/* Column 2: Steps, Features, Impact */}
+                  <div className="space-y-6">
+                    {/* Step-by-Step Workflow */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.25 }}
+                    >
+                      <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-primary" />
+                        Step-by-Step Workflow
+                      </h4>
+                      <div className="space-y-2">
+                        {selectedProject.workflowSteps.map((step, index) => (
+                          <motion.div
+                            key={step}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.25 + index * 0.03 }}
+                            className="flex items-start gap-3"
+                          >
+                            <div className="flex-shrink-0 size-6 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-xs">
+                              {index + 1}
+                            </div>
+                            <p className="text-muted-foreground text-sm pt-0.5">{step}</p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
 
-                  {/* Impact / Results */}
+                    {/* Key Features */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-primary" />
+                        Key Features
+                      </h4>
+                      <div className="space-y-2">
+                        {selectedProject.features.map((feature, index) => (
+                          <motion.div
+                            key={feature}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 + index * 0.03 }}
+                            className="flex items-start gap-2"
+                          >
+                            <CheckCircle2 className="size-4 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm text-foreground">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+
+                    {/* Impact / Results */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.35 }}
+                    >
+                      <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-primary" />
+                        Impact & Results
+                      </h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        {selectedProject.impact.map((item, index) => (
+                          <motion.div
+                            key={item.label}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.35 + index * 0.05 }}
+                            className="glass p-3 rounded-lg text-center"
+                          >
+                            <div className="text-xl font-bold text-primary mb-0.5">
+                              {item.value}
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              {item.description}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Column 3: Workflow Diagram */}
+                  <div className="lg:row-span-1">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="sticky top-24"
+                    >
+                      <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <span className="size-1.5 rounded-full bg-primary" />
+                        Workflow Diagram
+                      </h4>
+                      <div className="glass p-4 rounded-lg">
+                        <div className="relative w-full rounded-lg overflow-hidden bg-white">
+                          <img 
+                            src={selectedProject.workflowImage} 
+                            alt={`${selectedProject.title} workflow diagram`}
+                            className="w-full h-auto object-contain"
+                          />
+                        </div>
+                        <p className="text-xs text-muted-foreground text-center mt-3">
+                          End-to-end automation workflow
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Close Button */}
+                <div className="border-t border-border p-4">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                  >
-                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <span className="size-1.5 rounded-full bg-primary" />
-                      Impact & Results
-                    </h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                      {selectedProject.impact.map((item, index) => (
-                        <motion.div
-                          key={item.label}
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.4 + index * 0.1 }}
-                          className="glass p-4 rounded-xl text-center"
-                        >
-                          <div className="text-2xl sm:text-3xl font-bold text-primary mb-1">
-                            {item.value}
-                          </div>
-                          <div className="text-xs text-muted-foreground">
-                            {item.description}
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  {/* Close Button */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45 }}
-                    className="flex justify-end pt-4 border-t border-border"
+                    className="flex justify-end"
                   >
                     <Button
                       size="lg"
