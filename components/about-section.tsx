@@ -42,7 +42,8 @@ export function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-24 sm:py-32 overflow-hidden"
+      style={{ position: "relative" }}
+      className="py-24 sm:py-32 overflow-hidden"
     >
       {/* Parallax Background Element */}
       <motion.div

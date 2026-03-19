@@ -19,7 +19,8 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ position: "relative" }}
+      className="min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Animated Background Grid */}
       <AnimatedGrid />

@@ -46,7 +46,8 @@ export function WorkflowSection() {
     <section
       ref={sectionRef}
       id="workflow"
-      className="relative py-24 sm:py-32 overflow-hidden"
+      style={{ position: "relative" }}
+      className="py-24 sm:py-32 overflow-hidden"
     >
       {/* Parallax Background */}
       <motion.div
