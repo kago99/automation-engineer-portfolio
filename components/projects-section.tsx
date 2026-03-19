@@ -237,7 +237,7 @@ export function ProjectsSection() {
       <AnimatePresence>
         {selectedProject && (
           <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-            <DialogContent className="max-w-[95vw] w-full max-h-[90vh] overflow-y-auto p-0 gap-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <DialogContent className="w-[95vw] max-w-[95vw] lg:w-[90vw] lg:max-w-[90vw] max-h-[90vh] overflow-y-auto p-0 gap-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
