@@ -139,7 +139,7 @@ export function ProjectsSection() {
       ref={sectionRef}
       id="projects"
       style={{ position: "relative" }}
-      className="py-24 sm:py-32 overflow-hidden"
+      className="py-16 sm:py-20 overflow-hidden"
     >
       {/* Parallax Background */}
       <motion.div
@@ -234,7 +234,7 @@ export function ProjectsSection() {
       <AnimatePresence>
         {selectedProject && (
           <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 gap-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0 gap-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}

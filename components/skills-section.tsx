@@ -62,7 +62,7 @@ export function SkillsSection() {
       ref={sectionRef}
       id="skills"
       style={{ position: "relative" }}
-      className="py-24 sm:py-32 overflow-hidden"
+      className="py-16 sm:py-20 overflow-hidden"
     >
       {/* Parallax Background */}
       <motion.div

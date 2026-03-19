@@ -35,7 +35,7 @@ export function ContactSection() {
       ref={sectionRef}
       id="contact"
       style={{ position: "relative" }}
-      className="py-24 sm:py-32 overflow-hidden"
+      className="py-16 sm:py-20 overflow-hidden"
     >
       {/* Parallax Background */}
       <motion.div
