@@ -11,23 +11,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Automation Engineer | AI Systems Builder',
   description: 'I build automation systems that eliminate repetitive work and improve productivity. Specializing in AI workflows, no-code automation, and digital operations systems.',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
