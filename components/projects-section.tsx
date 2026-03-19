@@ -25,6 +25,7 @@ const projects = [
     id: 1,
     title: "Lead Automation System",
     icon: Zap,
+    workflowImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/lead%20automation%20system-JHrU2LUrj5ewKUqTF73hLjNY0tPbEs.png",
     overview: "An end-to-end system that captures leads, stores them in a CRM, creates follow-up tasks, and notifies teams automatically.",
     description: "Automated lead capture and nurturing pipeline that qualifies and routes prospects automatically.",
     tech: ["n8n", "HubSpot", "Slack", "Google Sheets", "Notion"],
@@ -58,6 +59,7 @@ const projects = [
     id: 2,
     title: "AI Meeting Assistant",
     icon: Bot,
+    workflowImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AI%20meeting%20assistant-TS5S09FJ1Lj4Fte8ECplHJYqIWaUbR.png",
     overview: "An intelligent system that transcribes meetings, extracts key insights and action items, and syncs everything to project management tools.",
     description: "Intelligent system that transcribes meetings, extracts action items, and updates project management tools.",
     tech: ["Make", "OpenAI", "Notion", "Zoom", "Google Calendar", "Slack"],
@@ -91,6 +93,7 @@ const projects = [
     id: 3,
     title: "Founder Dashboard",
     icon: BarChart3,
+    workflowImage: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Founder%20dashboard%20automation-YW7sZVegmgbOKHUWNuP6kWhPjIfHLQ.png",
     overview: "A real-time business intelligence dashboard that aggregates data from multiple platforms and delivers automated daily and weekly reports.",
     description: "Real-time business intelligence dashboard that aggregates data from multiple sources automatically.",
     tech: ["Zapier", "Airtable", "Stripe", "Google Analytics", "Slack", "Notion"],
@@ -304,29 +307,14 @@ export function ProjectsSection() {
                       Workflow Diagram
                     </h4>
                     <div className="glass p-6 rounded-lg">
-                      {/* Workflow Image Placeholder */}
-                      <div className="relative w-full aspect-video bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-center">
-                            <selectedProject.icon className="size-12 text-primary/40 mx-auto mb-2" />
-                            <span className="text-sm text-muted-foreground">Workflow Diagram</span>
-                          </div>
-                        </div>
-                        {/* Decorative flow lines */}
-                        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 200">
-                          <motion.path
-                            d="M 50 100 Q 100 50 150 100 T 250 100 T 350 100"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            className="text-primary/20"
-                            initial={{ pathLength: 0 }}
-                            animate={{ pathLength: 1 }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          />
-                        </svg>
+                      <div className="relative w-full rounded-lg overflow-hidden bg-white">
+                        <img 
+                          src={selectedProject.workflowImage} 
+                          alt={`${selectedProject.title} workflow diagram`}
+                          className="w-full h-auto object-contain"
+                        />
                       </div>
-                      <p className="text-xs text-muted-foreground text-center">
+                      <p className="text-xs text-muted-foreground text-center mt-3">
                         End-to-end automation workflow
                       </p>
                     </div>
