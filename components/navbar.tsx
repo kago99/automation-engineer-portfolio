@@ -40,7 +40,7 @@ export function Navbar() {
           <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
             <Zap className="size-5 text-primary" />
           </div>
-          <span className="font-semibold text-lg hidden sm:block">AutomateFlow</span>
+          <span className="font-semibold text-lg hidden sm:block">Lewis Kago</span>
         </a>
 
         {/* Desktop Navigation */}
