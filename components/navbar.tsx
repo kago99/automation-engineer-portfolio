@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Zap } from "lucide-react"
+import { Menu, X, Workflow } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -38,7 +38,7 @@ export function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 text-foreground">
           <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
-            <Zap className="size-5 text-primary" />
+            <Workflow className="size-5 text-primary" />
           </div>
           <span className="font-semibold text-lg hidden sm:block">Lewis Kago</span>
         </a>

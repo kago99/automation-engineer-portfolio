@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Zap, Github, Linkedin, Twitter, ArrowUp } from "lucide-react"
+import { Workflow, Github, Linkedin, Twitter, ArrowUp } from "lucide-react"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com", label: "GitHub" },
@@ -30,7 +30,7 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <a href="#" className="flex items-center gap-2 text-foreground mb-4">
               <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                <Zap className="size-5 text-primary" />
+                <Workflow className="size-5 text-primary" />
               </div>
               <span className="font-semibold text-lg">Lewis Kago</span>
             </a>
