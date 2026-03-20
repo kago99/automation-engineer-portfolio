@@ -32,7 +32,7 @@ export function Footer() {
               <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
                 <Zap className="size-5 text-primary" />
               </div>
-              <span className="font-semibold text-lg">AutomateFlow</span>
+              <span className="font-semibold text-lg">Lewis Kago</span>
             </a>
             <p className="text-sm text-muted-foreground max-w-xs">
               Building automation systems that eliminate repetitive work and improve productivity.
@@ -93,7 +93,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} AutomateFlow. All rights reserved.
+            © {new Date().getFullYear()} Lewis Kago. All rights reserved.
           </p>
           
           {/* Back to Top */}
